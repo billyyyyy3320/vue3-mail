@@ -23,7 +23,9 @@
       </tr>
     </tbody>
   </table>
-  <MailView v-if="openedEmail" :email="openedEmail" />
+  <ModalView v-if="openedEmail" @closeModal="openedEmail = null">
+    <MailView v-if="openedEmail" :email="openedEmail" />
+  </ModalView>
 </template>
 
 <script lang="ts">
@@ -32,6 +34,7 @@ import axios from 'axios'
 import { computed, reactive, ref } from 'vue'
 
 import MailView from '@/components/MailView.vue'
+import ModalView from '@/components/ModalView.vue'
 
 interface Email {
   id: number;
@@ -48,6 +51,10 @@ interface ServerResponse {
 }
 
 export default {
+  components: {
+    MailView,
+    ModalView
+  },
   async setup () {
     const { data }: ServerResponse = await axios.get('http://localhost:3000/emails')
     const emails = reactive(data)
@@ -87,9 +94,6 @@ export default {
 
       format
     }
-  },
-  components: {
-    MailView
   }
 
 }
