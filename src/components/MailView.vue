@@ -14,13 +14,16 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, PropType } from 'vue'
 import { format } from 'date-fns'
 import marked from 'marked'
 
-export default {
+import { Email } from '../types'
+
+export default defineComponent({
   props: {
     email: {
-      type: Object,
+      type: Object as PropType<Email>,
       required: true
     }
   },
@@ -30,7 +33,7 @@ export default {
       marked
     }
   }
-}
+})
 </script>
 
 <style scoped>

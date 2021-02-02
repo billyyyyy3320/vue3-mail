@@ -30,26 +30,18 @@
 <script lang="ts">
 import { format } from 'date-fns'
 import axios from 'axios'
-import { computed, reactive, ref } from 'vue'
+import { computed, defineComponent, reactive, ref } from 'vue'
 
 import MailView from '@/components/MailView.vue'
 import ModalView from '@/components/ModalView.vue'
 
-interface Email {
-  id: number;
-  from: string;
-  subject: string;
-  body: string;
-  sentAt: string;
-  archived: boolean;
-  read: boolean;
-}
+import { Email } from '../types'
 
 interface ServerResponse {
   data: Email[];
 }
 
-export default {
+export default defineComponent({
   components: {
     MailView,
     ModalView
@@ -94,8 +86,7 @@ export default {
       format
     }
   }
-
-}
+})
 </script>
 
 <style scoped>

@@ -8,10 +8,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
+
 import useKeydown from '../composables/useKeydown'
 
-export default {
-  setup (props, { emit }) {
+export default defineComponent({
+  setup (_, { emit }) {
     useKeydown([
       { key: 'Escape', fn: () => { emit('closeModal') } }
     ])
@@ -20,7 +22,7 @@ export default {
       emit
     }
   }
-}
+})
 </script>
 
 <style scoped>
