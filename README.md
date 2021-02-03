@@ -1,24 +1,9 @@
 # vue3-mail
 
-## Project setup
-```
-yarn install
-```
+Just a project during learning Vue3. Written with vue cli, vue3, and typescript.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## How to run it
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone the repo
+2. Run `yarn` to install deps
+3. Run `yarn dev` to start a mock api server and webpack dev server concurrently
